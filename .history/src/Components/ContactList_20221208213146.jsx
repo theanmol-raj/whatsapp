@@ -42,7 +42,7 @@ function ContactList(props) {
       </div>
 
       <div className='mt-4'>
-        {ContactArray.map((item,index) => <button onClick={()=>XYZ(item)} key={index} className=' w-full'><ContactCard showName={item.name} showImg={item.img} /></button> )}
+        {ContactArray.map((item,index) => <button onClick={()=>XYZ(item)} key={index} className=' w-full'><ContactCard custodata={item} showName={item.name} showImg={item.img} /></button> )}
       </div>
 
     </div>
