@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.banner{
+    background-image: url("https://images.wallpaperscraft.com/image/single/dog_muzzle_butterfly_tongue_sticking_out_spring_summer_93617_1920x1080.jpg");
+}
