@@ -13,6 +13,7 @@ function ChatInput(props) {
   const [text , setText] = useState(schema)
 
   function handleChange(event){
+    console.log(event)
     const value = event.target.value ;
     // const {value} = event.target ;
     setText({uid : `12345` , myMessage : value})

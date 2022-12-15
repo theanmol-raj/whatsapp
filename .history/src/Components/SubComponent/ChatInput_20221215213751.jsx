@@ -13,14 +13,13 @@ function ChatInput(props) {
   const [text , setText] = useState(schema)
 
   function handleChange(event){
-    const value = event.target.value ;
-    // const {value} = event.target ;
+    console.log(event)
+    const {value} = event.target ;
     setText({uid : `12345` , myMessage : value})
     
 
   }
-// windows.getElementById("tb") = > reference to input
-// event.target => reference to input which caused the event 
+
   return (
     <div className="flex items-center text-gray-200 py-2 px-4 space-x-2  bg-slate-700">
       <div className=" flex space-x-3 ">
@@ -33,13 +32,7 @@ function ChatInput(props) {
         placeholder="Type a Message"
         className="bg-slate-600 px-4 py-1 text-sm  rounded-md   w-full"
       />
-      <input
-        name="myMessage"
-        value={text.myMessage}
-        onChange={handleChange}
-        placeholder="Type a Message"
-        className="bg-red-600 px-4 py-1 text-sm  rounded-md   w-full"
-      />
+      
 
       <div className="pr-2">
         <MicIcon className="mt-3 " />
