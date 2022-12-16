@@ -74,11 +74,11 @@ async function XY(){
   })
   let newval = await ppo ; // e and S
   newval.then(function(r){
-    
+    console.log(r)
   } )
 
 }
-console.log(XY());
+console.log(XY() );
 
 
 

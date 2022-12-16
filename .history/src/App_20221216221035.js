@@ -68,21 +68,6 @@ async function Signup(){
 
 // })
 
-async function XY(){
-  let ppo = new Promise(function (A){
-    A(500)
-  })
-  let newval = await ppo ; // e and S
-  newval.then(function(r){
-    
-  } )
-
-}
-console.log(XY());
-
-
-
-
   return (
     <div className="h-screen w-screen bg-slate-900">
       {user ? <Homescreen /> : <LoginScreen login={Signup}  /> }

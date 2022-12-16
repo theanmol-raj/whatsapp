@@ -72,14 +72,14 @@ async function XY(){
   let ppo = new Promise(function (A){
     A(500)
   })
-  let newval = await ppo ; // e and S
-  newval.then(function(r){
-    
-  } )
+  let newval = await ppo.then(function(r){
+    console.log(r)
+  }) ; // e and S
+  
 
 }
-console.log(XY());
-
+// console.log(XY() );
+XY()
 
 
 

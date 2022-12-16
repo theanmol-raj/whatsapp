@@ -10,8 +10,8 @@ const [user ,setUser] = useState(null) ;
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-async function Signup(){
-  await signInWithPopup(auth, provider)
+function Signup(){
+  signInWithPopup(auth, provider)
   .then((result) => {
     const data = result.user;
     setUser(data) ;
@@ -67,21 +67,6 @@ async function Signup(){
 //   console.log(err)
 
 // })
-
-async function XY(){
-  let ppo = new Promise(function (A){
-    A(500)
-  })
-  let newval = await ppo ; // e and S
-  newval.then(function(r){
-    
-  } )
-
-}
-console.log(XY());
-
-
-
 
   return (
     <div className="h-screen w-screen bg-slate-900">
