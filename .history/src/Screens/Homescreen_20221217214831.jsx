@@ -12,7 +12,7 @@ function Homescreen({user ,logout}) {
   return (
     <div className=' w-full max-w-[95rem] grid grid-cols-4 h-screen bg-red-500 mx-auto'>
         {/* Contact List */}
-            <ContactList user={user} logout={logout} setContact={setActive} />
+            <ContactList setContact={setActive} />
         {/* Message Box */}
             {/* <ChatScreen p1={active} />  */}
             {/* Boolean operation true & true is always true  , true & false is always false */}

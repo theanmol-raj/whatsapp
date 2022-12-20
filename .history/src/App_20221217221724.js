@@ -3,7 +3,6 @@ import { getAuth ,onAuthStateChanged ,signOut , GoogleAuthProvider, signInWithPo
 import Homescreen from "./Screens/Homescreen";
 import LoginScreen from "./Screens/LoginScreen";
 import app from './firebase'
-import Loader from "./Screens/Loader";
 
 function App() {
 const [user ,setUser] = useState(null) ;
@@ -27,6 +26,9 @@ async function Signout(){
   await signOut(auth).then(()=>{}).catch(()=>{})
 }
 
+
+
+
 useEffect(()=>{ 
   onAuthStateChanged(auth, (u) => {
     if (u) {
@@ -38,12 +40,8 @@ useEffect(()=>{
 
 },[user])
 
-const [init ,setInit] = useState(true) ;
-setTimeout(function(){
-setInit(false)
-}, 5000 )
 
-  if (init) return <Loader /> ;
+
 
   return (
     <div className="h-screen w-screen bg-slate-900">

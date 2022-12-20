@@ -39,9 +39,6 @@ useEffect(()=>{
 },[user])
 
 const [init ,setInit] = useState(true) ;
-setTimeout(function(){
-setInit(false)
-}, 5000 )
 
   if (init) return <Loader /> ;
 

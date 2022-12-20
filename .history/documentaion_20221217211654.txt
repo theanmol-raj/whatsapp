@@ -1,0 +1,43 @@
+// function A(){
+//   console.log("A")
+// }
+// async function B(){
+//   console.log("B")
+// }
+// A() ; //async
+// B() ; 
+// C();
+// D() ; //async
+// Callback Function
+
+
+// Promises
+// function rest(A , B){
+//   //working Code ......
+
+
+//   // 
+//   A(); // =>Success
+//   B(); //=>error
+
+// }
+// let value = new Promise(rest)
+
+// let prom = new Promise(function (A ,B){
+//   let name = "lubna56" ;
+
+//   if(name === "lubna"){
+//     A("Yes this is the correct value")
+//   }else{
+//     B("No the name was not  same")
+//   }
+// })
+// // console.log(prom)
+
+// prom.then(function(va){
+//   console.log(va)
+
+// }).catch(function(err){
+//   console.log(err)
+
+// })
