@@ -65,7 +65,7 @@ function ContactList({user , db, logout , ...props}) {
       </div>
 
       <div className='mt-4'>
-        {ContactArray.filter(item => item.uid !== user.uid).map(item => <button onClick={()=>XYZ(item)} key={item.uid} className=' w-full'><ContactCard showName={item.displayName} showImg={item.photoURL} /></button> )}
+        {ContactArray.map((item,index) => <button onClick={()=>XYZ(item)} key={index} className=' w-full'><ContactCard showName={item.name} showImg={item.img} /></button> )}
       </div>
 
     </div>

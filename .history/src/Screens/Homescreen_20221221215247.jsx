@@ -10,15 +10,13 @@ function Homescreen({user,db ,logout}) {
 
 
   return (
-    <div className=' w-full max-w-[95rem] grid grid-cols-4 h-screen bg-slate-800 mx-auto'>
+    <div className=' w-full max-w-[95rem] grid grid-cols-4 h-screen bg-red-500 mx-auto'>
         {/* Contact List */}
             <ContactList user={user} db={db} logout={logout} setContact={setActive} />
         {/* Message Box */}
             {/* <ChatScreen p1={active} />  */}
             {/* Boolean operation true & true is always true  , true & false is always false */}
-          {active ? <ChatScreen db={db} p1={active} /> : <div className=' flex justify-center items-center col-span-3 w-full'>
-            <p className=' font-black text-7xl text-gray-400'>welcome</p>
-          </div>}
+          {active && <ChatScreen db={db} p1={active} />}
             
 
     </div>

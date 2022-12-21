@@ -17,7 +17,7 @@ function Homescreen({user,db ,logout}) {
             {/* <ChatScreen p1={active} />  */}
             {/* Boolean operation true & true is always true  , true & false is always false */}
           {active ? <ChatScreen db={db} p1={active} /> : <div className=' flex justify-center items-center col-span-3 w-full'>
-            <p className=' font-black text-7xl text-gray-400'>welcome</p>
+            <p>welcome</p>
           </div>}
             
 

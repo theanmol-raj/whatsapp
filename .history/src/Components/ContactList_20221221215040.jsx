@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import GroupsIcon from '@mui/icons-material/Groups';
 import ReplayIcon from '@mui/icons-material/Replay';
 import MessageIcon from '@mui/icons-material/Message';
@@ -10,7 +10,7 @@ import ContactCard from './ContactCard';
 import { collection, getDocs } from "firebase/firestore";
 
 
-function ContactList({user , db, logout , ...props}) {
+function ContactList({user , logout , ...props}) {
 
   // const ContactArray = [ { name : "Arfat" , img : `https://pps.whatsapp.net/v/t61.24694-24/312280018_169906322326594_541453286877171405_n.jpg?ccb=11-4&oh=01_AdQ1yNbSZqdVKcnMgMRJIHB1Ir-EPaz0J7QmOLxRvme0eg&oe=639896B0`},
   // { name : "Ejaz" , img : `https://pps.whatsapp.net/v/t61.24694-24/298328542_766611371246745_4042993338047187675_n.jpg?ccb=11-4&oh=01_AdQ36FheWCyxcYyPJQ-xCOFR58A1-h-HbgN6dFXHd5YssQ&oe=639876BD`},
@@ -18,20 +18,8 @@ function ContactList({user , db, logout , ...props}) {
 
   const [ContactArray ,setContactArray] = useState([]) ;
 
-  useEffect(()=>{
-    if(!user) return ;
-    getAllUsers();
-  },[user])
 
-  async function getAllUsers(){
-    const ref = collection(db, "users") ;
-    const querySnapshot = await getDocs(ref);
-    let temparr = [] ;
-    querySnapshot.forEach((item) => {
-      temparr.push(item.data())
-    })
-    setContactArray(temparr)
-}
+
 
 
 
@@ -65,7 +53,7 @@ function ContactList({user , db, logout , ...props}) {
       </div>
 
       <div className='mt-4'>
-        {ContactArray.filter(item => item.uid !== user.uid).map(item => <button onClick={()=>XYZ(item)} key={item.uid} className=' w-full'><ContactCard showName={item.displayName} showImg={item.photoURL} /></button> )}
+        {ContactArray.map((item,index) => <button onClick={()=>XYZ(item)} key={index} className=' w-full'><ContactCard showName={item.name} showImg={item.img} /></button> )}
       </div>
 
     </div>

@@ -59,13 +59,13 @@ useEffect(()=>{
 const [init ,setInit] = useState(true) ;
 setTimeout(function(){
 setInit(false)
-}, 2000 )
+}, 5000 )
 
   if (init) return <Loader /> ;
 
   return (
     <div className="h-screen w-screen bg-slate-900">
-      {user ? <Homescreen user={user} db={db} logout={Signout} /> : <LoginScreen login={SignIn}  /> }
+      {user ? <Homescreen user={user} logout={Signout} /> : <LoginScreen login={SignIn}  /> }
 
 
     </div>

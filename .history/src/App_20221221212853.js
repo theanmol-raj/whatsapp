@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAuth ,onAuthStateChanged ,signOut , GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { getFirestore , doc, getDoc ,setDoc  } from "firebase/firestore";
+import { getFirestore , doc, getDoc  } from "firebase/firestore";
 import Homescreen from "./Screens/Homescreen";
 import LoginScreen from "./Screens/LoginScreen";
 import app from './firebase'
@@ -15,24 +15,30 @@ const db = getFirestore(app);
 
 useEffect(()=>{
   if (!user) return ;
-  checkNewLogin();
+  // checkNewLogin();
 },[user])
 
 async function checkNewLogin(){
-  const docRef = doc(db, "users", user?.uid);
+  const docRef = doc(db, "cities", "SF");
   const docSnap = await getDoc(docRef);
 
-if (!docSnap.exists()) {
-  await setDoc(doc(db, "users", user?.uid), user);   
+if (docSnap.exists()) {
+  console.log("Document data:", docSnap.data());
+} else {
+  // doc.data() will be undefined in this case
+  console.log("No such document!");
 }
+
 }
 
 
 async function SignIn(){
   await signInWithPopup(auth, provider)
   .then((result) => {
+    const data = result.user;
     const {displayName ,email ,photoURL ,uid} = result.user ;
-    setUser({"displayName":displayName ,"email" :email ,"photoURL" :photoURL ,"uid" :uid}) ;
+    setUser(data) ;
+    console.log(displayName ,email ,photoURL ,uid ,"done")
   }).catch((error) => {
     console.log(error)
     setUser(null)
@@ -47,25 +53,24 @@ async function Signout(){
 useEffect(()=>{ 
   onAuthStateChanged(auth, (u) => {
     if (u) {
-      const {displayName ,email ,photoURL ,uid} = u ;
-      setUser({"displayName":displayName ,"email" :email ,"photoURL" :photoURL ,"uid" :uid}) ;
+      setUser(u)
     } else {
       setUser(null)
     }
   });
 
-},[])
+},[user])
 
 const [init ,setInit] = useState(true) ;
 setTimeout(function(){
 setInit(false)
-}, 2000 )
+}, 5000 )
 
   if (init) return <Loader /> ;
 
   return (
     <div className="h-screen w-screen bg-slate-900">
-      {user ? <Homescreen user={user} db={db} logout={Signout} /> : <LoginScreen login={SignIn}  /> }
+      {user ? <Homescreen user={user} logout={Signout} /> : <LoginScreen login={SignIn}  /> }
 
 
     </div>
