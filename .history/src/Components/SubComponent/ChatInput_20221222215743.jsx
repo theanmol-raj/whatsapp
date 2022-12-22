@@ -40,10 +40,9 @@ function ChatInput({db,user ,...props}) {
 
   
  async function postMessage(){
-  if(message.myMessage === "") return ;
-  // console.log(message)
-  await addDoc(collection(db, "grpMSG"), message);
-  setMessage(schema);
+  console.log(message)
+    
+  // await addDoc(collection(db, "grpMSG"), message);
 
  }  
 
@@ -60,7 +59,7 @@ function ChatInput({db,user ,...props}) {
         placeholder="Type a Message"
         className="bg-slate-600 px-4 py-1 text-sm  rounded-md   w-full"
       />
-      <button onClick={()=>postMessage()} className=" bg-gradient-to-br from-purple-500 to-yellow-500 px-4 py-2 rounded-full">Send</button>
+      <button className=" bg-gradient-to-br from-purple-500 to-yellow-500">Send</button>
       <div className="pr-2">
         <MicIcon className="mt-3 " />
       </div>

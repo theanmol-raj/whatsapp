@@ -3,14 +3,14 @@ import { collection, onSnapshot } from "firebase/firestore";
 
 
 function Message({data ,me}){
-
+    console.log(photoURL)
     return (<div>
         {me ? <div className=' w-full max-h-max  flex justify-end'>
             <div className=' max-w-max rounded-br-none px-4 py-2 rounded-lg bg-slate-800 text-gray-200'>
             <p>{data.myMessage}</p>
         </div>
-        </div> : <div className='flex space-x-3'>
-        <img src={data.img} className="rounded-full h-8 w-8" />
+        </div> : <div className='flex'>
+        <img src={data.photoURL} />
         <div className=' max-h-max max-w-max px-4 py-2 rounded-bl-none rounded-lg bg-white text-gray-800'>
         <p className=' text-xs text-red-600'>{data.displayName}</p>
         <p>{data.myMessage}</p>

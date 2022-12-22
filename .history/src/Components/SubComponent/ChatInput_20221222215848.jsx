@@ -28,7 +28,7 @@ function ChatInput({db,user ,...props}) {
     //   })
 
     // })
-    setMessage(cm =>({...cm , [name] : value}))
+    setMessage(cm =>({...cm , name : value}))
 
 
     // setMessage(prev => ({...prev,[name]:value}))
@@ -40,10 +40,9 @@ function ChatInput({db,user ,...props}) {
 
   
  async function postMessage(){
-  if(message.myMessage === "") return ;
-  // console.log(message)
-  await addDoc(collection(db, "grpMSG"), message);
-  setMessage(schema);
+  console.log(message)
+    
+  // await addDoc(collection(db, "grpMSG"), message);
 
  }  
 

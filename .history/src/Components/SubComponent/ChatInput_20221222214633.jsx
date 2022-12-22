@@ -8,7 +8,6 @@ function ChatInput({db,user ,...props}) {
 
 
   const schema = {
-    
     myMessage : "",
     uid : user?.uid ,
     img:user?.photoURL ,
@@ -16,34 +15,22 @@ function ChatInput({db,user ,...props}) {
   }
   const [message , setMessage] = useState(schema)
 
-
-
-
-
   function handleChange(event){
     const {name ,value} =  event.target ;
-    // setMessage(function(cm){
-    //   return ({
-    //     ...cm , [name] : value
-    //   })
+    setMessage(function(cm){
+      console.log(cm)
+      return schema
 
-    // })
-    setMessage(cm =>({...cm , [name] : value}))
+    })
 
 
     // setMessage(prev => ({...prev,[name]:value}))
     
 
   }
-
-
-
-  
  async function postMessage(){
-  if(message.myMessage === "") return ;
-  // console.log(message)
-  await addDoc(collection(db, "grpMSG"), message);
-  setMessage(schema);
+    
+  // await addDoc(collection(db, "grpMSG"), message);
 
  }  
 
@@ -60,7 +47,6 @@ function ChatInput({db,user ,...props}) {
         placeholder="Type a Message"
         className="bg-slate-600 px-4 py-1 text-sm  rounded-md   w-full"
       />
-      <button onClick={()=>postMessage()} className=" bg-gradient-to-br from-purple-500 to-yellow-500 px-4 py-2 rounded-full">Send</button>
       <div className="pr-2">
         <MicIcon className="mt-3 " />
       </div>

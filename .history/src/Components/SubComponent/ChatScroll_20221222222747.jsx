@@ -9,12 +9,9 @@ function Message({data ,me}){
             <div className=' max-w-max rounded-br-none px-4 py-2 rounded-lg bg-slate-800 text-gray-200'>
             <p>{data.myMessage}</p>
         </div>
-        </div> : <div className='flex space-x-3'>
-        <img src={data.img} className="rounded-full h-8 w-8" />
-        <div className=' max-h-max max-w-max px-4 py-2 rounded-bl-none rounded-lg bg-white text-gray-800'>
-        <p className=' text-xs text-red-600'>{data.displayName}</p>
+        </div> : <div className=' max-h-max max-w-max px-4 py-2 rounded-bl-none rounded-lg bg-white text-gray-800'>
+        <p className=' text-xs'>{data.displayName}</p>
         <p>{data.myMessage}</p>
-        </div>
         </div>}
     </div>)
 
